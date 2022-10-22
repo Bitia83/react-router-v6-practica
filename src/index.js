@@ -10,6 +10,7 @@ import NotFound from "./routes/NotFound";
 import RutaProtegida from "./routes/RutaProtegida";
 import Post from "./routes/Post";
 import UserProvider from "./context/UserProvider";
+import VerificaUsuario from "./componentes/VerificaUsuario";
 
 
 
@@ -24,7 +25,8 @@ root.render(
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:id" element={<Post />} />
           <Route path="contacto" element={<Contacto />} />
-          <Route path="protegida" element={<RutaProtegida />} />
+          <Route path="protegida" element={
+            <VerificaUsuario> <RutaProtegida /></VerificaUsuario>} />
 
           <Route path="*" element={<NotFound />} />
         </Route>
